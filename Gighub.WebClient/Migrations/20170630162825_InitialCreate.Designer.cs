@@ -8,8 +8,8 @@ using Gighub.WebClient.Data;
 namespace Gighub.WebClient.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170630161558_Initial")]
-    partial class Initial
+    [Migration("20170630162825_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
