@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gighub.WebClient.Models;
+using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +11,26 @@ namespace Gighub.WebClient.Data
     public class Seeder
     {
         private ApplicationDbContext _context;
+        private UserManager<ApplicationUser> _userManager;
 
-        public Seeder(ApplicationDbContext context)
+        public Seeder(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public async Task EnsureSeedDataAsync()
         {
+            // user
+            if (await _userManager.FindByEmailAsync("user1@gmail.com") == null)
+            {
+                await _userManager.CreateAsync(new ApplicationUser()
+                {
+                    UserName = "user1",
+                    Email = "user1@gmail.com"
+                }, "P@ssw0rd01!");
+            }
+
             // genre
             if (!_context.Genres.Any())
             {

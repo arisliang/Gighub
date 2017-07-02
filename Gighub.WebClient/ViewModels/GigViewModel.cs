@@ -16,7 +16,7 @@ namespace Gighub.WebClient.ViewModels
 
         public string Time { get; set; }
 
-        public int Genre { get; set; }
+        public byte Genre { get; set; }
 
         public SelectList Genres { get; set; }
     }

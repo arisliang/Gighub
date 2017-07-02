@@ -11,8 +11,10 @@ namespace Gighub.WebClient.Models
     {
         public int Id { get; set; }
 
-        [Required]
         public ApplicationUser Artist { get; set; }
+
+        [Required]
+        public string ArtistId { get; set; }
 
         public DateTime Date { get; set; }
 
@@ -20,7 +22,9 @@ namespace Gighub.WebClient.Models
         [StringLength(255)]
         public string Venue { get; set; }
 
-        [Required]
         public Genre Genre_ { get; set; }
+
+        [Required]
+        public byte GenreId { get; set; }
     }
 }

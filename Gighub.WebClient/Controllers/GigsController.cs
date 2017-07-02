@@ -1,5 +1,7 @@
 ﻿using Gighub.WebClient.Data;
+using Gighub.WebClient.Models;
 using Gighub.WebClient.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -19,6 +21,8 @@ namespace Gighub.WebClient.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        [Authorize]
         public IActionResult Create()
         {
             var vm = new GigViewModel
@@ -27,6 +31,26 @@ namespace Gighub.WebClient.Controllers
             };
 
             return View(vm);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Create(GigViewModel vm)
+        {
+            var artist = _context.Users.Single(u => u.UserName == User.Identity.Name);
+
+            var model = new Gig
+            {
+                ArtistId = artist.Id,
+                Date = DateTime.Parse(string.Format("{0} {1}", vm.Date, vm.Time)),
+                GenreId = vm.Genre,
+                Venue = vm.Venue
+            };
+
+            _context.Gigs.Add(model);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

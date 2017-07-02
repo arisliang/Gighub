@@ -5,9 +5,9 @@
     ViewBag.Title = "Create";
 }
 
-<h1>Create Gigs</h1>
+<h1>Add a Gig</h1>
 
-<form>
+<form method="post" action="Create">
     <div class="form-group">
         <label asp-for="Venue"></label>
         <input asp-for="Venue" class="form-control" />
@@ -26,5 +26,7 @@
             <option disabled selected>Please select genre</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
 </form>
