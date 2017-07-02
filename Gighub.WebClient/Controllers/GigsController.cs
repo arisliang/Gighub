@@ -42,7 +42,7 @@ namespace Gighub.WebClient.Controllers
             var model = new Gig
             {
                 ArtistId = artist.Id,
-                Date = DateTime.Parse(string.Format("{0} {1}", vm.Date, vm.Time)),
+                Date = vm.DateTime,
                 GenreId = vm.Genre,
                 Venue = vm.Venue
             };
