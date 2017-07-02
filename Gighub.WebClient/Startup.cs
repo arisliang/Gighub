@@ -14,6 +14,7 @@ using Gighub.WebClient.Models;
 using Gighub.WebClient.Services;
 using AutoMapper;
 using Gighub.WebClient.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Gighub.WebClient
 {
@@ -51,7 +52,10 @@ namespace Gighub.WebClient
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddMvc();
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+            });
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
