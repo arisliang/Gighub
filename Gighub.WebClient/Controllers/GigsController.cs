@@ -37,12 +37,19 @@ namespace Gighub.WebClient.Controllers
         [Authorize]
         public IActionResult Create(GigViewModel vm)
         {
+            if (!ModelState.IsValid)
+            {
+                vm.Genres = new SelectList(_context.Genres.ToList(), "Id", "Name");
+
+                return View("Create", vm);
+            }
+
             var artist = _context.Users.Single(u => u.UserName == User.Identity.Name);
 
             var model = new Gig
             {
                 ArtistId = artist.Id,
-                Date = vm.DateTime,
+                Date = vm.GetDateTime(),
                 GenreId = vm.Genre,
                 Venue = vm.Venue
             };
