@@ -102,8 +102,8 @@ h1, .h1, h2, .h2, h3, .h3 {
 }
 
 .btn {
-    padding: 7px 20px;
-    font-size: 17px;
+    /*padding: 7px 20px;
+    font-size: 17px;*/
     border-radius: 9px;
 }
 

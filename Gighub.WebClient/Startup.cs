@@ -54,7 +54,7 @@ namespace Gighub.WebClient
 
             services.AddMvc(options =>
             {
-                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+                //options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             });
 
             // Add application services.

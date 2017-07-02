@@ -26,5 +26,7 @@ namespace Gighub.WebClient.Models
 
         [Required]
         public byte GenreId { get; set; }
+
+        ICollection<Attendance> Attendances { get; set; }
     }
 }
