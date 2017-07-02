@@ -1,0 +1,30 @@
+﻿@using Gighub.WebClient.ViewModels
+
+@model GigViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h1>Create Gigs</h1>
+
+<form>
+    <div class="form-group">
+        <label asp-for="Venue"></label>
+        <input asp-for="Venue" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Date"></label>
+        <input asp-for="Date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Time"></label>
+        <input asp-for="Time" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Genre"></label>
+        <select asp-for="Genre" asp-items="@Model.Genres" class="form-control">
+            <option disabled selected>Please select genre</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

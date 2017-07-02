@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using Gighub.WebClient.Data;
 using Gighub.WebClient.Models;
 using Gighub.WebClient.Services;
+using AutoMapper;
+using Gighub.WebClient.ViewModels;
 
 namespace Gighub.WebClient
 {
@@ -43,6 +45,8 @@ namespace Gighub.WebClient
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddTransient<Seeder>();
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -55,7 +59,10 @@ namespace Gighub.WebClient
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public async void Configure(IApplicationBuilder app,
+            IHostingEnvironment env,
+            ILoggerFactory loggerFactory,
+            Seeder seeder)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -71,11 +78,19 @@ namespace Gighub.WebClient
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            //app.UseStatusCodePagesWithRedirects("/STATUS/{0}");
+            app.UseStatusCodePagesWithReExecute("/STATUS/{0}");
+
             app.UseStaticFiles();
 
             app.UseIdentity();
 
             // Add external authentication middleware below. To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715
+
+            //Mapper.Initialize(config =>
+            //{
+            //    config.CreateMap<GigViewModel, Gig>().ReverseMap();
+            //});
 
             app.UseMvc(routes =>
             {
@@ -83,6 +98,8 @@ namespace Gighub.WebClient
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            await seeder.EnsureSeedDataAsync();
         }
     }
 }

@@ -7,9 +7,52 @@
 
   <PropertyGroup>
     <UserSecretsId>aspnet-Gighub.WebClient-045434ca-bb9d-46cf-ae5e-93cd79d9b1a3</UserSecretsId>
+    <AssemblyName>Gighub</AssemblyName>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.1" />
+    <Content Include="wwwroot\examples\bootstrap.html" />
+    <Content Include="wwwroot\examples\bootstrap101.html" />
+    <Content Include="wwwroot\examples\bootstrap\blog\blog.css" />
+    <Content Include="wwwroot\examples\bootstrap\blog\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\bootstrap101.html" />
+    <Content Include="wwwroot\examples\bootstrap\carousel\carousel.css" />
+    <Content Include="wwwroot\examples\bootstrap\carousel\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\cover\cover.css" />
+    <Content Include="wwwroot\examples\bootstrap\cover\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\dashboard\dashboard.css" />
+    <Content Include="wwwroot\examples\bootstrap\dashboard\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\grid\grid.css" />
+    <Content Include="wwwroot\examples\bootstrap\grid\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\hello\bootstrap101.html" />
+    <Content Include="wwwroot\examples\bootstrap\hello\hello.html" />
+    <Content Include="wwwroot\examples\bootstrap\hello\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\jumbotron-narrow\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\jumbotron-narrow\jumbotron-narrow.css" />
+    <Content Include="wwwroot\examples\bootstrap\jumbotron\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\jumbotron\jumbotron.css" />
+    <Content Include="wwwroot\examples\bootstrap\justified-nav\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\justified-nav\justified-nav.css" />
+    <Content Include="wwwroot\examples\bootstrap\navbar-fixed-top\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\navbar-fixed-top\navbar-fixed-top.css" />
+    <Content Include="wwwroot\examples\bootstrap\navbar-static-top\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\navbar-static-top\navbar-static-top.css" />
+    <Content Include="wwwroot\examples\bootstrap\navbar\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\navbar\navbar.css" />
+    <Content Include="wwwroot\examples\bootstrap\signin\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\signin\signin.css" />
+    <Content Include="wwwroot\examples\bootstrap\starter\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\starter\starter-template.css" />
+    <Content Include="wwwroot\examples\bootstrap\sticky-footer-navbar\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\sticky-footer-navbar\sticky-footer-navbar.css" />
+    <Content Include="wwwroot\examples\bootstrap\sticky-footer\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\sticky-footer\sticky-footer.css" />
+    <Content Include="wwwroot\examples\bootstrap\theme\index.html" />
+    <Content Include="wwwroot\examples\bootstrap\theme\theme.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="1.1.2" />
